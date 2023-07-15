@@ -3,9 +3,9 @@ import { User } from "@/models";
 import { getAllUsers } from "@/lib/getUser";
 
 export default async function MoviePage() {
-  const userData: Promise<User[]> = getAllUsers();
+  // const userData: Promise<User[]> = getAllUsers();
 
-  const users = await userData;
+  // const users = await userData;
 
   return (
     <div>

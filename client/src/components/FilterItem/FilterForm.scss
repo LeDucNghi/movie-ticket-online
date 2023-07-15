@@ -1,0 +1,36 @@
+@import "../../app/index.scss";
+
+form {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    .form_items {
+        padding: 0 2rem;
+
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        font-weight: 600;
+        text-transform: uppercase;
+
+        img {
+            width: 2.5rem;
+            height: 2.5rem;
+
+            object-fit: contain;
+        }
+
+        span {
+            color: $light-green;
+            line-height: 1.75rem;
+
+            margin: 0 0.5rem;
+        }
+    }
+}

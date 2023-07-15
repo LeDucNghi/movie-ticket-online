@@ -1,0 +1,24 @@
+@import "../../app/index.scss";
+
+.banner_container {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    .banner_thumbnail {
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+
+        top: 0;
+        left: 0;
+
+        opacity: 0.3;
+
+        img {
+            @include objectFitImg;
+        }
+    }
+}

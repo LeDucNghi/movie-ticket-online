@@ -1,0 +1,191 @@
+@import "../../../app/index.scss";
+
+.detail_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 100%;
+
+    .detail_content {
+        z-index: 1;
+
+        display: flex;
+        justify-content: flex-end;
+
+        margin-top: 1rem;
+
+        .detail_thumbnail {
+            position: absolute;
+
+            left: 5rem;
+            bottom: 1rem;
+
+            width: 20%;
+            height: 25rem;
+
+            z-index: 2;
+
+            cursor: pointer;
+
+            .thumbnail_trailer {
+                @include flexCenter;
+
+                position: absolute;
+
+                width: 100%;
+                height: 100%;
+
+                color: $blue;
+
+                .thumbnail_icon {
+                    font-size: 5rem;
+                }
+            }
+
+            img {
+                @include objectFitImg;
+
+                border-radius: 0.5rem;
+            }
+        }
+
+        .detail {
+            position: relative;
+
+            width: 75%;
+
+            padding: 1.5rem 2em;
+
+            margin-bottom: 5rem;
+
+            h3 {
+                text-transform: capitalize;
+                font-size: 2.25rem;
+                font-weight: 700;
+                line-height: 3rem;
+                color: #ffffff;
+
+                margin: -0.6rem 0 0;
+            }
+
+            .movie_languages {
+                width: 100%;
+
+                margin-bottom: 1.3rem;
+
+                a {
+                    color: $blue;
+                    font-size: 0.875rem;
+                    text-transform: uppercase;
+                    line-height: 1.75rem;
+                }
+            }
+
+            .movie_tags {
+                width: 100%;
+
+                margin-bottom: 0.9rem;
+
+                a {
+                    color: $blue;
+                    font-size: 0.875rem;
+                    line-height: 1.75rem;
+                    text-transform: uppercase;
+
+                    padding: 0.3rem 1.1rem;
+
+                    border-radius: 1.2rem;
+                    border: 0.01rem solid $blue;
+
+                    margin: 0.8rem 0.8rem 0.8rem 0;
+                }
+            }
+
+            .movie_duration {
+                width: 100%;
+
+                display: flex;
+
+                .duration_item {
+                    display: flex;
+                    align-items: center;
+
+                    margin: 0.3rem 1rem 0.3rem 0;
+
+                    color: $blue;
+
+                    font-size: 0.8rem;
+
+                    .item_icon {
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .detail_book_section {
+        position: relative;
+        width: 100%;
+
+        padding: 2rem 0;
+
+        background-color: $light-blue;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .book_wrapper {
+            width: 70%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-right: 2rem;
+
+            .custom_link {
+                @include button;
+
+                height: 3.1rem;
+
+                color: #ffffff;
+
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    box-shadow: 0px 4.5px 3.6px rgba(0, 0, 0, 0.024), 0px 12.5px 10px rgba(0, 0, 0, 0.035),
+                        0px 30.1px 24.1px rgba(0, 0, 0, 0.046), 0px 100px 80px rgba(0, 0, 0, 0.07);
+
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+
+            .movie_rating {
+                display: flex;
+
+                .rating_items {
+                    text-align: center;
+
+                    margin: 0.6rem 1rem;
+
+                    color: $light-grey;
+
+                    .items_header {
+                        @include flexCenter;
+
+                        span {
+                            font-size: 1.2rem;
+                            font-weight: 600;
+
+                            margin-left: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

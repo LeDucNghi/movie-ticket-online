@@ -1,0 +1,13 @@
+@import "../index.scss";
+
+.auth_layout_container {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("../../../public/images/account-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

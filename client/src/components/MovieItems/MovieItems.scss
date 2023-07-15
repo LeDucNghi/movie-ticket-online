@@ -1,0 +1,179 @@
+@import "../../index.scss";
+
+.movie_items_container {
+    h5 {
+        font-weight: 600;
+        font-size: 1.5rem;
+        text-align: left;
+        padding: 1.4rem 0;
+        text-transform: capitalize;
+        border-bottom: 0.01rem dashed $light-blue;
+        color: #fff;
+    }
+
+    ul {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        text-align: left;
+        padding: 1.1rem 0;
+
+        color: $light-grey;
+
+        li {
+            display: flex;
+            flex-direction: row;
+
+            padding-right: 1rem;
+
+            .rate_image {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+
+    &.vertical {
+        width: 33%;
+        height: 34rem;
+
+        padding: 0 1.5rem;
+
+        background: transparent;
+
+        padding-right: 0.9rem;
+        padding-left: 0.9rem;
+
+        margin: 1em 0;
+
+        .movie_items {
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: 1rem;
+
+            background: $dark-blue;
+
+            overflow: hidden;
+
+            .movie_thumbnail {
+                overflow: hidden;
+
+                width: 100%;
+                height: 70%;
+
+                transition: all 0.3s ease-in-out;
+
+                img {
+                    @include objectFitImg;
+
+                    transition: all 0.3s ease-in-out;
+                }
+
+                &:hover {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+            .movie_content {
+                padding: 0 1.3rem;
+            }
+        }
+    }
+
+    &.horizontal {
+        width: 100%;
+
+        color: #dbe2fb;
+
+        .movie_items {
+            position: relative;
+
+            @include flexRowSpace;
+
+            margin-bottom: 1.9rem;
+
+            .movie_thumbnail {
+                width: 30%;
+                height: 100%;
+
+                img {
+                    @include objectFitImg;
+
+                    border-radius: 1rem;
+                }
+            }
+
+            .movie_content {
+                @include flexCol;
+
+                width: 70%;
+                height: 100%;
+
+                padding-left: 1.9rem;
+
+                h5 {
+                    border: none;
+                    padding: 0;
+                    margin: -0.3rem 0 1.12rem;
+                }
+
+                .movie_tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin: 0 0 0.2rem;
+                    line-height: 1.75rem;
+                }
+
+                .duration {
+                    margin: -0.7rem 0 1rem;
+                    color: #26a258;
+                    font-size: 0.875rem;
+                }
+
+                .release_date {
+                    margin: 0 0 2.5rem;
+                }
+
+                .book_area {
+                    width: 100%;
+
+                    @include flexSpace;
+
+                    padding: 0.9rem 0;
+
+                    border-bottom: 0.01rem solid $light-blue;
+                    border-top: 0.01rem solid $light-blue;
+
+                    button {
+                        color: #fff;
+                        font-weight: 600;
+                    }
+
+                    .book_ticket {
+                        display: flex;
+                        align-items: center;
+
+                        button {
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+
+                    .popup_video {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .thumb {
+                        @include iconsRounded;
+                    }
+                }
+            }
+        }
+    }
+}

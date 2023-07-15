@@ -1,0 +1,35 @@
+@import "../../../app/index.scss";
+
+.textfield_container {
+    z-index: 9;
+
+    padding-bottom: 1rem;
+
+    .input_label {
+        color: #fff;
+    }
+
+    .input_field {
+        color: #fff;
+        background: transparent;
+
+        &::before {
+            border-bottom: 1px solid #fff;
+        }
+
+        &::after {
+            border-bottom: 2px solid #fff;
+        }
+    }
+}
+
+.error_message {
+    width: 100%;
+
+    margin: 0 0 1rem 0;
+
+    color: red;
+    text-align: left;
+
+    padding: 0 0.5rem;
+}

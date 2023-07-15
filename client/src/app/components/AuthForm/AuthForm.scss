@@ -1,0 +1,111 @@
+@import "../../index.scss";
+
+.auth_form_container {
+    @include positionCenter;
+
+    position: relative;
+
+    width: 35%;
+    padding: 3.75rem 2.8rem;
+
+    border-radius: 0.5rem;
+
+    background-color: rgba(68, 90, 153, 0.051);
+
+    box-shadow:
+        1.7px 1.4px 2.8px rgba(0, 0, 0, 0.02),
+        4px 3.3px 6.7px rgba(0, 0, 0, 0.028),
+        7.5px 6.3px 12.5px rgba(0, 0, 0, 0.035),
+        13.4px 11.2px 22.3px rgba(0, 0, 0, 0.042),
+        25.1px 20.9px 41.8px rgba(0, 0, 0, 0.05),
+        60px 50px 100px rgba(0, 0, 0, 0.07);
+
+    .form_header {
+        width: 100%;
+
+        text-align: center;
+        text-transform: uppercase;
+
+        margin-bottom: 2.2rem;
+
+        .header_cate {
+            color: $light-green;
+            font-size: 1.75rem;
+            margin: 0.375rem 0 1.5625rem;
+        }
+
+        .header_title {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+
+    .auth_form_wrapper {
+        @include flexCenter;
+        flex-wrap: wrap;
+
+        .form_date {
+            @include flexSpaceCenter;
+
+            width: 100%;
+        }
+    }
+
+    .account_form {
+        margin-bottom: 2rem;
+
+        .form_checkgroup {
+            @include flexSpace;
+            flex-wrap: wrap;
+            align-items: center;
+
+            width: 100%;
+
+            margin: 0 auto 0 auto;
+
+            padding: 0 0.5rem;
+
+            font-size: 0.8rem;
+            color: #ffffff;
+
+            text-transform: capitalize;
+        }
+        .form_button {
+            @include flexCenter;
+
+            color: #ffffff;
+
+            width: 100%;
+
+            margin-top: 1rem;
+
+            button {
+                @include button;
+
+                width: 50%;
+
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .form_option {
+        @include flexCenter;
+        flex-wrap: wrap;
+
+        color: #ffffff;
+
+        a {
+            color: $light-green;
+            font-size: 1rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .auth_form_container {
+        width: 80%;
+    }
+}

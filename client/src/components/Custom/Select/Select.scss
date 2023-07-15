@@ -1,0 +1,22 @@
+@import "../../../app/index.scss";
+
+.select_container {
+    padding-bottom: 1rem;
+
+    .select_label {
+        color: $light-grey;
+        font-weight: 600;
+    }
+
+    .select_field {
+        color: #fff;
+
+        &::before {
+            border-bottom: 1px solid #fff;
+        }
+
+        &::after {
+            border-bottom: 2px solid #fff;
+        }
+    }
+}

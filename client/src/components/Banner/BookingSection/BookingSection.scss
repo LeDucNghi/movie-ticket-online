@@ -1,0 +1,52 @@
+@import "../../../app/index.scss";
+
+.booking_container {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+
+    .booking_content {
+        margin: auto 0;
+
+        text-align: center;
+        text-transform: uppercase;
+
+        h3 {
+            color: #ffffff;
+            font-size: 3.75rem;
+            font-weight: 700;
+        }
+
+        .banner_tags {
+            width: 100%;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            a {
+                color: $light-grey;
+                line-height: 1.75rem;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .banner_filter {
+        position: relative;
+
+        width: 100%;
+
+        padding: 2rem 0;
+
+        background: $light-blue;
+        border-color: #17305f;
+        border-style: solid none;
+        border-width: 0.0625rem 0;
+    }
+}

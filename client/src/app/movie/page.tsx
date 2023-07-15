@@ -9,7 +9,7 @@ export default async function MoviePage() {
 
   return (
     <div>
-      {users.map((user) => {
+      {/* {users.map((user) => {
         return (
           <>
             <p key={user.id}>
@@ -18,7 +18,8 @@ export default async function MoviePage() {
             <br />
           </>
         );
-      })}
+      })} */}
+      this is movie page
     </div>
   );
 }

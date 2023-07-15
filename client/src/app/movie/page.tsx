@@ -3,9 +3,9 @@ import { User } from "@/models";
 import { getAllUsers } from "@/lib/getUser";
 
 export default async function MoviePage() {
-  // const userData: Promise<User[]> = getAllUsers();
+  const userData: Promise<User[]> = getAllUsers();
 
-  // const users = await userData;
+  const users = await userData;
 
   return (
     <div>
@@ -22,4 +22,15 @@ export default async function MoviePage() {
       this is movie page
     </div>
   );
+}
+
+export async function getStaticProps() {
+  // params contains the post `id`.
+  // If the route is like /posts/1, then params.id is 1
+  const userData: Promise<User[]> = getAllUsers();
+
+  const users = await userData;
+
+  // Pass post data to the page via props
+  return { props: { users } };
 }

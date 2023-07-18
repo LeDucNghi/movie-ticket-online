@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/auth", require("./routes/auth"));
+app.use("/movie", require("./routes/movies"));
 
 mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");

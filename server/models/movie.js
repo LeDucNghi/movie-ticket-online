@@ -1,53 +1,25 @@
-module.exports = (sequalize, DataTypes) => {
-  const movies = sequalize.define(
-    "movies",
-    {
-      title: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+const mongoose = require("mongoose");
 
-      image: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
+const Schema = mongoose.Schema;
 
-      subTitle: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-
-      categories: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-
-      content: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
-
-      visit: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        defaultValue: 0,
-      },
-
-      updatedAt: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: DataTypes.NOW,
-      },
-
-      createdAt: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: DataTypes.NOW,
-      },
+const movieSchema = new Schema({
+  name: String,
+  thumbnail: String,
+  languages: [{ language: String }],
+  genre: [{ genreName: String }],
+  rate: {
+    tomatoes: {
+      type: Number,
+      default: 0,
     },
-    {
-      timestamps: false,
-    }
-  );
-  return movies;
-};
+    audience: {
+      type: Number,
+      default: 0,
+    },
+  },
+  releaseDate: String,
+  trailer: String,
+  duration: String,
+});
+
+module.exports = mongoose.model("movies", movieSchema);

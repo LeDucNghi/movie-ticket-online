@@ -1,27 +1,27 @@
-const User = require("../models/User");
+const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
-exports.signin = async (req, res) => {
-  const { name, pwd } = req.body;
+// exports.signin = async (req, res) => {
+//   const { name, pwd } = req.body;
 
-  if (!name || !pwd)
-    return res
-      .status(401)
-      .send({ message: "Username and password are required." });
+//   if (!name || !pwd)
+//     return res
+//       .status(401)
+//       .send({ message: "Username and password are required." });
 
-  const user = await User.findOne({ username: name });
+//   const user = await User.findOne({ username: name });
 
-  if (!user)
-    return res.status(401).send({ message: "Can not find your account!" });
+//   if (!user)
+//     return res.status(401).send({ message: "Can not find your account!" });
 
-  bcrypt.compare(pwd, user.password).then((match) => {
-    if (!match) return res.send({ message: "Username or password is wrong🤔" });
+//   bcrypt.compare(pwd, user.password).then((match) => {
+//     if (!match) return res.send({ message: "Username or password is wrong🤔" });
 
-    const tokenPayload = {
-      username: user.username,
-    };
-  });
-};
+//     const tokenPayload = {
+//       username: user.username,
+//     };
+//   });
+// };
 
 exports.signup = async (req, res) => {
   const { user, pwd } = req.body;

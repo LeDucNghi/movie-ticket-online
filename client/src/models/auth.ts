@@ -11,14 +11,14 @@ export interface AuthState {
 }
 
 export interface FormikValue {
-  username: string;
-  password: string;
+  name: string;
+  pwd: string;
   confirmPassword?: string;
 }
 
 export interface SignIn {
-  username: string;
-  password: string;
+  name: string;
+  pwd: string;
 }
 
 export interface SignUp {
@@ -43,25 +43,9 @@ export interface UserProfile {
 }
 
 export interface User {
-  id: number;
-  name: string;
+  _id: string;
   username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
+  password: string;
+  role: [];
+  __v: number;
 }

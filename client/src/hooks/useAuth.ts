@@ -7,9 +7,13 @@ import { useState } from "react";
 export const useAuth = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  async function signin({ username, password }: SignIn) {
+  async function signin({ name, pwd }: SignIn) {
+    console.log("🚀 ~ file: useAuth.ts:11 ~ signin ~ { name, pwd }:", {
+      name,
+      pwd,
+    });
     setIsLoading(true);
-    const res = await authApi.signin({ password, username });
+    const res = await authApi.signin({ pwd, name });
 
     setIsLoading(false);
     localStorage.setItem("profile", JSON.stringify({ ...res }));
@@ -24,6 +28,8 @@ export const useAuth = () => {
       progress: undefined,
       theme: "light",
     });
+
+    return res;
   }
 
   async function signup({ username, password, birth }: SignUp) {

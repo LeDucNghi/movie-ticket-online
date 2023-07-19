@@ -1,27 +1,42 @@
+const { sign } = require("jsonwebtoken");
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
-// exports.signin = async (req, res) => {
-//   const { name, pwd } = req.body;
+exports.getAllUser = async (req, res) => {
+  const userList = await User.find();
 
-//   if (!name || !pwd)
-//     return res
-//       .status(401)
-//       .send({ message: "Username and password are required." });
+  res.status(200).send({ userList });
+};
 
-//   const user = await User.findOne({ username: name });
+exports.signin = async (req, res) => {
+  const { name, pwd } = req.body;
 
-//   if (!user)
-//     return res.status(401).send({ message: "Can not find your account!" });
+  if (!name || !pwd)
+    return res
+      .status(401)
+      .send({ message: "Username and password are required." });
 
-//   bcrypt.compare(pwd, user.password).then((match) => {
-//     if (!match) return res.send({ message: "Username or password is wrong🤔" });
+  const user = await User.findOne({ username: name });
 
-//     const tokenPayload = {
-//       username: user.username,
-//     };
-//   });
-// };
+  if (!user)
+    return res.status(401).send({ message: "Can not find your account!" });
+
+  bcrypt.compare(pwd, user.password).then((match) => {
+    if (!match) return res.send({ message: "Username or password is wrong🤔" });
+
+    const tokenPayload = {
+      username: user.username,
+      role: user.role,
+    };
+
+    const accessToken = sign(tokenPayload, process.env.ACCESS_TOKEN_SECRET, {
+      expiresIn: "1d",
+    });
+
+    if (accessToken) return res.status(200).send({ accessToken });
+    else return res.status(401);
+  });
+};
 
 exports.signup = async (req, res) => {
   const { user, pwd } = req.body;

@@ -2,35 +2,34 @@
 
 import "../../components/AuthForm/AuthForm.scss";
 
-import * as React from "react";
 import * as Yup from "yup";
 
 import { Field, Form, Formik } from "formik";
 
-import { CustomTextfield } from "@/components/Custom/Textfield/Textfield";
-import { FormikValue, SignIn } from "@/models";
-import { useAuth } from "@/hooks";
-import Link from "next/link";
 import { Checkboxes } from "@/components/Custom/Checkbox/Checkbox";
+import { CustomTextfield } from "@/components/Custom/Textfield/Textfield";
+import { useAuth } from "@/hooks";
+import { FormikValue, SignIn } from "@/models";
+import Link from "next/link";
+import { signin } from "@/lib/getUser";
 
 export interface ISignInProps {}
 
 export function SignIn(props: ISignInProps) {
-  const { signin } = useAuth();
-
   const initialValues: FormikValue = {
-    username: "",
-    password: "",
+    name: "",
+    pwd: "",
   };
 
   const validationSchema = Yup.object().shape({
-    username: Yup.string().required("This field is required 🤧"),
-    password: Yup.string().required("This field is required 🤧"),
+    name: Yup.string().required("This field is required 🤧"),
+    pwd: Yup.string().required("This field is required 🤧"),
   });
 
-  const handleSubmit = (values: SignIn) => {
+  const handleSubmit = async (values: SignIn) => {
     console.log("🚀 ~ file: SignIn.tsx:28 ~ handleSubmit ~ values:", values);
-    signin(values);
+    // const res = await signin(values);
+    // signin({ ...values });
   };
 
   const handleChange = (value: string) => {
@@ -44,8 +43,10 @@ export function SignIn(props: ISignInProps) {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-      // onSubmit={(values) => signin(values)}
+      // onSubmit={handleSubmit}
+      onSubmit={(values) => {
+        console.log("values", values);
+      }}
     >
       {(formikProps) => {
         return (

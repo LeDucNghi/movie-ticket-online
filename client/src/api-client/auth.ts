@@ -4,23 +4,27 @@ import { User } from "@/models";
 import { axiosClient } from "./axiosClient";
 
 export const authApi = {
-  signin(params: SignIn): Promise<UserProfile> {
-    return axiosClient.post(`/api/auth/login`, params);
+  signin({ name, pwd }: SignIn): Promise<UserProfile> {
+    return axiosClient.post(`auth/signin`, { name, pwd });
   },
 
   signup(params: SignUp): Promise<UserProfile> {
-    return axiosClient.post(`/api/auth/register`, params);
+    return axiosClient.post(`/auth/register`, params);
   },
 
   verifyToken(): Promise<VerifyToken> {
-    return axiosClient.post(`/api/auth/verify-access-token`);
+    return axiosClient.post(`/auth/verify-access-token`);
   },
 
   regenerateToken(): Promise<UserProfile> {
-    return axiosClient.post(`/api/auth/re-gen`);
+    return axiosClient.post(`/auth/re-gen`);
   },
 
   getUserProfile(id: number): Promise<User> {
     return axiosClient.get(`users/${id}`);
+  },
+
+  getUserList(): Promise<any> {
+    return axiosClient.get(`auth/getall`);
   },
 };

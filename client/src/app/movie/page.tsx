@@ -6,10 +6,11 @@ export default async function MoviePage() {
   const userData: Promise<User[]> = getAllUsers();
 
   const users = await userData;
+  console.log("🚀 ~ file: page.tsx:9 ~ MoviePage ~ users:", users);
 
   return (
     <div>
-      {users.map((user) => {
+      {/* {users.map((user) => {
         return (
           <>
             <p key={user._id}>
@@ -18,7 +19,7 @@ export default async function MoviePage() {
             <br />
           </>
         );
-      })}
+      })} */}
       this is movie page
     </div>
   );

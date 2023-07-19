@@ -1,5 +1,6 @@
 import { SignIn, SignUp, UserProfile, VerifyToken } from "@/models";
 
+import { ListResponse } from "./../models/api";
 import { User } from "@/models";
 import { axiosClient } from "./axiosClient";
 
@@ -24,7 +25,7 @@ export const authApi = {
     return axiosClient.get(`users/${id}`);
   },
 
-  getUserList(): Promise<any> {
+  getUserList(): Promise<ListResponse<User>> {
     return axiosClient.get(`auth/getall`);
   },
 };

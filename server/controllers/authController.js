@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 exports.getAllUser = async (req, res) => {
   const userList = await User.find();
 
-  res.status(200).send({ userList });
+  res.status(200).send({ data: userList });
 };
 
 exports.signin = async (req, res) => {
